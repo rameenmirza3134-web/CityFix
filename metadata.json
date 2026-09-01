@@ -1,0 +1,6 @@
+{
+  "name": "CityFix AI",
+  "description": "AI-powered civic problem reporting agent that analyzes photos of urban issues, incorporates live weather and web research, and files structured complaints.",
+  "requestFramePermissions": ["geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
