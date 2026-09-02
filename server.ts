@@ -34,7 +34,7 @@ if (supabaseUrl && supabaseAnonKey && supabaseUrl.trim() !== '' && supabaseAnonK
 }
 
 // In-memory / persistent file backup for complaints when Supabase is not connected
-const DATA_FILE = path.join(process.cwd(), '.complaints_cache.json');
+const DATA_FILE = path.join(process.env.VERCEL ? '/tmp' : process.cwd(), '.complaints_cache.json');
 let localComplaints: any[] = [];
 
 // Load existing complaints from cache or start empty
@@ -690,4 +690,10 @@ async function startServer() {
   });
 }
 
-startServer();
+// Only start standalone HTTP server when not running in a serverless environment (e.g. Vercel)
+if (!process.env.VERCEL) {
+  startServer();
+}
+
+export default app;
+

@@ -110,9 +110,26 @@ CityFix AI is an intelligent civic reporting platform that empowers citizens and
 
 ---
 
-## 📦 Building for Production
+## 📦 Building & Deploying
 
-To create a production-ready build:
+### Deploying to Vercel ▲
+
+This project is configured out of the box with `vercel.json` and a serverless API handler (`api/index.ts`):
+
+1. **Push your repository** to GitHub.
+2. **Import the repository** in [Vercel Dashboard](https://vercel.com/new).
+3. **Set the Environment Variables** in the Vercel project settings:
+   - `GEMINI_API_KEY`: Your Google Gemini API Key.
+   - `SUPABASE_URL` *(Optional)*: If using cloud persistence.
+   - `SUPABASE_ANON_KEY` *(Optional)*: If using cloud persistence.
+   - `TAVILY_API_KEY` *(Optional)*: For enhanced search grounding.
+4. **Click Deploy**. Vercel will automatically build the static assets into `dist/` and configure the `/api/*` serverless function route.
+
+---
+
+### Local Production Build
+
+To create a production-ready build locally or for Docker/Cloud Run:
 
 ```bash
 npm run build
